@@ -99,7 +99,7 @@ fun Home(navController: NavHostController, database: LLDatabase){
                 )
             }
         }
-        HeroSection(searchText, currentCategory, { typedText: String -> searchText = typedText }, {categoryName: String ->
+        HeroSection(searchText, { typedText: String -> searchText = typedText }, {categoryName: String ->
                 currentCategory = categoryName
         })
         MenuItemsDisplay(mItems = menuItems)
@@ -107,7 +107,7 @@ fun Home(navController: NavHostController, database: LLDatabase){
 }
 
 @Composable
-fun HeroSection(searchText: String, currCat: String, changeSearchText: (String) -> Unit, sortIntoCategory: (String) -> Unit){
+fun HeroSection(searchText: String, changeSearchText: (String) -> Unit, sortIntoCategory: (String) -> Unit){
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -262,7 +262,7 @@ fun MenuItemsDisplay(mItems: List<MenuItemRoom>){
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Normal,
                             modifier = Modifier
-                                .fillMaxWidth(.6f)
+                                .fillMaxWidth()
                                 .padding(bottom = 5.dp)
                                 //.background(Color.Yellow)
                         )
